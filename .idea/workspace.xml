@@ -2,8 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a875a096-39e1-4d8c-8765-9e8c5bcdd7fe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/DAO/NotaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DAO/NotaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/config/BDConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/config/BDConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ProjetoTeste-1.0-SNAPSHOT.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ProjetoTeste_1_0_SNAPSHOT_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/rest/NotasService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/classes/main/JAVA/DAO/NotaDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/classes/main/JAVA/config/BDConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/classes/main/JAVA/entidade/Nota.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/classes/main/JAVA/rest/NotasService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/aopalliance-repackaged-2.4.0-b31.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/commons-codec-1.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/hk2-api-2.4.0-b31.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/hk2-locator-2.4.0-b31.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/hk2-utils-2.4.0-b31.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/javassist-3.18.1-GA.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/javax.annotation-api-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/javax.inject-2.4.0-b31.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/javax.json-1.0.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/javax.ws.rs-api-2.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/jersey-client-2.22.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/jersey-common-2.22.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/jersey-container-servlet-2.22.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/jersey-container-servlet-core-2.22.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/jersey-entity-filtering-2.22.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/jersey-guava-2.22.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/jersey-media-jaxb-2.22.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/jersey-media-moxy-2.22.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/jersey-server-2.22.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-6.0.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.asm-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.core-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.moxy-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/osgi-resource-locator-1.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProjetoTeste-1.0-SNAPSHOT/WEB-INF/lib/validation-api-1.1.0.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/JAVA/DAO/NotaDAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/JAVA/config/BDConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/JAVA/entidade/Nota.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/JAVA/rest/NotasService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/DAO/NotaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/NotaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/config/BDConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/config/BDConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entidade/Nota.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/entidade/Nota.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -13,42 +57,54 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ProjetoTeste" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/JAVA/rest/NotasService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/entidade/Nota.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="272">
+              <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
               <folding>
-                <element signature="e#146#147#0" expanded="true" />
-                <element signature="e#171#172#0" expanded="true" />
-                <element signature="e#204#205#0" expanded="true" />
-                <element signature="e#232#233#0" expanded="true" />
-                <element signature="e#265#266#0" expanded="true" />
-                <element signature="e#294#295#0" expanded="true" />
-                <element signature="e#338#339#0" expanded="true" />
-                <element signature="e#374#375#0" expanded="true" />
-                <element signature="e#410#411#0" expanded="true" />
-                <element signature="e#442#443#0" expanded="true" />
-                <element signature="e#492#493#0" expanded="true" />
-                <element signature="e#534#535#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#436#437#0" expanded="true" />
+                <element signature="e#475#476#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/config/BDConfig.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/JAVA/entidade/Nota.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/JAVA/config/BDConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="10" column="96" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
@@ -60,9 +116,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/DAO/NotaDAO.java">
+        <entry file="file://$PROJECT_DIR$/src/main/JAVA/DAO/NotaDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="721">
+            <state relative-caret-position="535">
               <caret line="89" column="26" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,12 +142,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/entidade/Nota.java" />
         <option value="$PROJECT_DIR$/src/config/BDConfig.java" />
         <option value="$PROJECT_DIR$/src/main/config/BDConfig.java" />
         <option value="$PROJECT_DIR$/src/main/DAO/NotaDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rest/NotasService.java" />
+        <option value="$PROJECT_DIR$/src/main/rest/NotasService.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/JAVA/rest/NotasService.java" />
       </list>
     </option>
   </component>
@@ -114,8 +173,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,26 +189,58 @@
               <item name="ProjetoTeste" type="b2602c69:ProjectViewProjectNode" />
               <item name="teste" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="JAVA" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProjetoTeste" type="b2602c69:ProjectViewProjectNode" />
               <item name="teste" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="JAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="entidade" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetoTeste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teste" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="JAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetoTeste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teste" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetoTeste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teste" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjetoTeste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teste" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554834178658" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554842267185" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea/artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatSettingConfigurable" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="open ~/teste" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -166,49 +255,26 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <module name="rest-notas" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
+    <configuration name="TOMCAT" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="DOC_BASE" value="$PROJECT_DIR$/.idea/artifacts" />
+      <option name="CONTEXT_PATH" value="/rest-notas" />
+      <option name="TOMCAT_PORT" value="8080" />
+      <option name="AJP_PORT" value="8009" />
+      <option name="ADMIN_PORT" value="8005" />
+      <option name="VM_OPTIONS" value="" />
+      <option name="PASS_PARENT_ENV_OPTIONS" value="true" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <module name="rest-notas" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="DOC_BASE" value="$PROJECT_DIR$/.idea/artifacts" />
+      <option name="CONTEXT_PATH" value="/rest-notas" />
+      <option name="TOMCAT_PORT" value="8080" />
+      <option name="AJP_PORT" value="8009" />
+      <option name="ADMIN_PORT" value="8005" />
+      <option name="VM_OPTIONS" value="" />
+      <option name="PASS_PARENT_ENV_OPTIONS" value="true" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -227,76 +293,72 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24958494" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.26065302" />
+      <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.257886" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.50080514" side_tool="true" weight="0.257886" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32937366" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32937366" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24958494" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/entidade/Nota.java">
+    <entry file="file://$PROJECT_DIR$/src/main/JAVA/entidade/Nota.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/JAVA/config/BDConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="96" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
           <folding>
-            <element signature="e#146#147#0" expanded="true" />
-            <element signature="e#171#172#0" expanded="true" />
-            <element signature="e#204#205#0" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#410#411#0" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/JAVA/DAO/NotaDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/DAO/NotaDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
+        <state relative-caret-position="535">
           <caret line="89" column="26" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -304,12 +366,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/config/BDConfig.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="96" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
+        <state relative-caret-position="212">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/JAVA/rest/NotasService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -320,10 +398,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>ProjetoTeste-1.0-SNAPSHOT.war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -366,7 +446,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>teste</last-edited>
+          <last-edited>rest-notas</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
