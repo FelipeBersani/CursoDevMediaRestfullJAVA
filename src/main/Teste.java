@@ -279,7 +279,10 @@ public class Teste {
             i++;
         }
         System.out.println("ValorIterator| "+valor);
-        
+
+
+
+
 
     }
 }
