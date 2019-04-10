@@ -1,7 +1,7 @@
-package main.JAVA.DAO;
+package main.DAO;
 
-import main.JAVA.config.BDConfig;
-import main.JAVA.entidade.Nota;
+import main.config.BDConfig;
+import main.entidade.Nota;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

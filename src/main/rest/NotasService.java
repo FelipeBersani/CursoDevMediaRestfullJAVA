@@ -1,7 +1,7 @@
-package main.JAVA.rest;
+package main.rest;
 
-import main.JAVA.DAO.NotaDAO;
-import main.JAVA.entidade.Nota;
+import main.DAO.NotaDAO;
+import main.entidade.Nota;
 
 import javax.annotation.PostConstruct;
 import javax.ws.rs.GET;
@@ -10,7 +10,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Path("/notas")
 public class NotasService {

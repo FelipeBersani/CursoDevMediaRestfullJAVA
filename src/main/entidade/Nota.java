@@ -1,4 +1,4 @@
-package main.JAVA.entidade;
+package main.entidade;
 
 public class Nota {
 
