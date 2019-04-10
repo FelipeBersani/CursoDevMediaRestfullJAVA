@@ -1,5 +1,10 @@
 package main;
 
+import com.mysql.cj.core.util.StringUtils;
+import jersey.repackaged.com.google.common.collect.ImmutableSet;
+import org.apache.commons.lang3.ClassUtils;
+
+import javax.swing.text.html.Option;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.Function;
@@ -184,26 +189,97 @@ public class Teste {
             sb = i==0 ? sb.append(value.toString()+"-") : sb.append(value.toString());
             i++;
         }
-        System.out.println(sb);
+        System.out.println("NACIONALIDADE| "+sb);
 
 
         List<String> listPessoa = Arrays.asList("Pessoa", "Pessoa2", "Pessoa3");
         String result = listPessoa.stream()
                 .collect(Collectors.joining("-", "[", "]"));
-        System.out.println(result);
+        System.out.println("STREAM COM TRAÇO| "+result);
 
 
-        listPessoa = Arrays.asList("Pessoa", "Pessoa2", "Pessoa3");
+        listPessoa = Arrays.asList("Pessoa", "Pessoa2", "Pessoa3", "Arnaldo");
         result = listPessoa.stream()
                 .collect(Collectors.joining(", "));
-        System.out.println(result);
+        System.out.println("STREAM COM VIRGULA| "+result);
 
 
         List<Pessoa> listDePessoas = Pessoa.populaPessoas();
         Map<Long, List<Pessoa>> pessoaMap = listDePessoas.stream()
                 .collect(Collectors.groupingBy(Pessoa::getId));
-        System.out.println(pessoaMap);
+        System.out.println("MAP| "+pessoaMap);
+
+        List<String> primeiraPessoa = listPessoa.stream()
+                .filter(p-> p.startsWith("Pessoa"))
+                .collect(Collectors.toList());
+
+        System.out.println("ListPessoa| "+primeiraPessoa);
+
+
+
+        Optional<Pessoa> pessoaS = pessoas.stream()
+                .filter(p -> p.getId()<5)
+                .sorted(Comparator.comparing(Pessoa::getNome).reversed())
+                .limit(1)
+                .findFirst();
+
+        System.out.println("GET NOME ID<5| "+pessoaS.get().getNome());
+
+
+
+        String nome = pessoas.stream()
+                .sorted(Comparator.comparing(Pessoa::getNome).reversed())
+                .map(Pessoa::getNome)
+                .limit(1)
+                .collect(Collectors.joining());
+
+        System.out.println("GET NOME POR COLLECT| "+nome);
+
+
+        List<String> givenList = Arrays.asList("a", "bb", "ccc", "dddd");
+        Long resultadoMaisQueTresDigitos = givenList.stream()
+                .filter(g -> g.length()>=3)
+                .count();
+        System.out.println("QTDE MAIS DE 3 DIGITOS| "+resultadoMaisQueTresDigitos);
+
+
+        String nomeResultadoMaisQueTresDigitos = givenList.stream()
+                .filter(g -> g.length()>=3)
+                .collect(Collectors.joining(", "));
+        System.out.println("NOME MAIS DE 3 DIGITOS| "+nomeResultadoMaisQueTresDigitos);
+
+
+        List<Integer> listaNumeros = Arrays.asList(3, 4, 6, 7);
+        Double somaNumeros = listaNumeros.stream()
+                .mapToDouble(p -> p.doubleValue())
+                .sum();
+        System.out.println("SOMA NUMEROS| "+somaNumeros);
+
+
+        OptionalDouble mediaNumeros = listaNumeros.stream()
+                .mapToDouble(p -> p.doubleValue())
+                .average();
+        System.out.println("MEDIA NUMEROS| "+mediaNumeros.getAsDouble());
+
+
+        Set<String> setTeste = new HashSet<>();
+        setTeste.add("Teste");
+        setTeste.add("Teste2");
+        setTeste.add("Teste3");
+
+        Iterator<String> it = setTeste.iterator();
+        i = 0;
+        String valor= "";
+        while (it.hasNext()){
+            if(i==0){
+                valor = it.next();
+            }else{
+                it.next();
+            }
+            i++;
+        }
+        System.out.println("ValorIterator| "+valor);
+        
 
     }
-
 }

@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a875a096-39e1-4d8c-8765-9e8c5bcdd7fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/Pessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/NotaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DAO/NotaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/config/BDConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/config/BDConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/entidade/Nota.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/entidade/Nota.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/rest/NotasService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/rest/NotasService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/JAVA/DAO/NotaDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/JAVA/config/BDConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/JAVA/entidade/Nota.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/JAVA/rest/NotasService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Teste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Teste.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Teste.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Teste.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="202" column="66" selection-start-line="202" selection-start-column="66" selection-end-line="202" selection-end-column="66" />
+            <state relative-caret-position="450">
+              <caret line="281" column="8" selection-start-line="281" selection-start-column="8" selection-end-line="281" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,6 +153,17 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ProjetoTeste" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="27" />
@@ -204,7 +208,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554920249896" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554926777647" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../codecommit/contas-digitais" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -324,7 +328,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24958494" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.32982844" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -437,10 +441,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/stream/DoubleStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3462">
+          <caret line="495" column="11" selection-start-line="495" selection-start-column="11" selection-end-line="495" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Teste.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="202" column="66" selection-start-line="202" selection-start-column="66" selection-end-line="202" selection-end-column="66" />
+        <state relative-caret-position="450">
+          <caret line="281" column="8" selection-start-line="281" selection-start-column="8" selection-end-line="281" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
