@@ -1,7 +1,9 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Pessoa {
 
@@ -20,10 +22,10 @@ public class Pessoa {
     }
 
     public static List<Pessoa> populaPessoas(){
-        Pessoa p1 = new Pessoa((long) 1, "NOME1", "BRASILEIRO", 16);
-        Pessoa p2 = new Pessoa((long) 2, "NOME2", "BRASILEIRO", 20);
-        Pessoa p3 = new Pessoa((long) 3, "NOME3", "BRASILEIRO", 25);
-        Pessoa p4 = new Pessoa((long) 4, "ANOME4", "ARGENTINO", 10);
+        Pessoa p1 = new Pessoa(1L, "NOME1", "BRASILEIRO", 16);
+        Pessoa p2 = new Pessoa(2L, "NOME2", "BRASILEIRO", 20);
+        Pessoa p3 = new Pessoa(3L, "NOME3", "BRASILEIRO", 25);
+        Pessoa p4 = new Pessoa(4L, "ANOME4", "ARGENTINO", 10);
 
         List<Pessoa> lista = new ArrayList<>();
         lista.add(p1);
@@ -33,6 +35,32 @@ public class Pessoa {
 
         return lista;
     }
+
+
+    public static Map<String, Pessoa> populaPessoasMap(){
+        Pessoa p1 = new Pessoa(1L, "NOME1", "BRASILEIRO", 16);
+        Pessoa p2 = new Pessoa(2L, "NOME2", "BRASILEIRO", 20);
+        Pessoa p3 = new Pessoa(3L, "NOME3", "BRASILEIRO", 25);
+        Pessoa p4 = new Pessoa(4L, "ANOME4", "ARGENTINO", 10);
+        Pessoa p5 = new Pessoa(5L, "ANOME4", "ARGENTINO", 10);
+        Pessoa p6 = new Pessoa(6L, "ANOME4", "ARGENTINO", 10);
+        Pessoa p7 = new Pessoa(7L, "ANOME4", "ARGENTINO", 10);
+        Pessoa p8 = new Pessoa(8L, "ANOME4", "ARGENTINO", 10);
+        Pessoa p9 = new Pessoa(9L, "ANOME4", "ARGENTINO", 10);
+        Pessoa p10 = new Pessoa(10L, "ANOME4", "ARGENTINO", 10);
+
+        Map<String, Pessoa> mapPessoa = new HashMap<>();
+
+        mapPessoa.put("Primeira", p1);
+        mapPessoa.put("Segunda", p2);
+        mapPessoa.put("Terceira", p3);
+        mapPessoa.put("Quarta", p4);
+
+        return mapPessoa;
+    }
+
+
+
 
     public String toString(){
         return this.id+"/"+this.nome+"/"+this.nacionalidade+"/"+this.idade;

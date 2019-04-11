@@ -1,15 +1,8 @@
 package main;
 
-import com.mysql.cj.core.util.StringUtils;
-import jersey.repackaged.com.google.common.collect.ImmutableSet;
-import org.apache.commons.lang3.ClassUtils;
-
-import javax.swing.text.html.Option;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -280,9 +273,58 @@ public class Teste {
         }
         System.out.println("ValorIterator| "+valor);
 
+        String[] companies = { "Yahoo", "Vodafone", "Samsung" };
+        Arrays.sort(companies);
+        System.out.println("ArrayString "+companies.toString());
+
+        List<String> testeArray = Arrays.asList("TESTE1", "ATESTE2", "BTESTE3", "CTESTE4", "DTESTE5", "ETESTE6", "FTESTE7", "GTESTE8");
+        Collections.sort(testeArray);
+        System.out.println("ARRAY "+testeArray);
+
+        testeArray.stream().sorted(Comparator.reverseOrder()).forEach(a -> System.out.println("Lista: "+a));
+
+
+        //EXERCICIO MEIA
+        List<String> listTamanhoMeia = Arrays.asList("1","1", "3", "4", "2", "2", "5", "1", "1", "2", "3", "4", "5", "1", "1", "2");
+        System.out.println("Quantidade de itens 1 na lista: "+listTamanhoMeia.stream().filter(s -> s.equals("1")).count());
+
+        Map<String, Integer> mapOrdenador = new HashMap<String, Integer>();
+
+        for(String meiaSeparada :listTamanhoMeia){
+
+            if(mapOrdenador.containsKey(meiaSeparada)){
+                Integer qtdMeiaTamanho = mapOrdenador.get(meiaSeparada);
+                qtdMeiaTamanho+=1;
+                mapOrdenador.put(meiaSeparada, qtdMeiaTamanho);
+            }else{
+                mapOrdenador.put(meiaSeparada, 1);
+            }
+        }
+
+        Map<String, Integer> mapFinal = new HashMap<>();
+        mapOrdenador.entrySet().stream().forEach(a -> mapFinal.put(a.getKey(), (a.getValue())/2));
+        mapFinal.entrySet().stream().sorted(Map.Entry.<String,Integer>comparingByKey().reversed()).forEach(k -> System.out.println("OrderedDecreasingKEYFINAL "+k.getKey()+", VALUEFINAL "+k.getValue()));
+
+        mapFinal.entrySet().stream().forEach(k -> System.out.println("OrderedIncreasingKEYFINAL "+k.getKey()+", VALUEFINAL "+k.getValue()));
+
+        mapFinal.entrySet()
+                .stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().thenComparing(Map.Entry.<String, Integer>comparingByKey().reversed()))
+                .forEach(k -> System.out.println("UsingTwoSortFilters "+k.getKey()+", VALUEFINAL "+k.getValue()));
 
 
 
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
