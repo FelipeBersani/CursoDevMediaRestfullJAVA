@@ -1,3 +1,5 @@
+import jersey.repackaged.com.google.common.collect.MapDifference;
+import jersey.repackaged.com.google.common.collect.Maps;
 import main.Pessoa;
 import main.Teste;
 
@@ -11,8 +13,17 @@ public class Teste2 {
     }
 
     public void testaHashMap() {
-        Map<String, Pessoa> mapPessoa = new HashMap<>();
-        mapPessoa = Pessoa.populaPessoasMap();
+        Map<String, Pessoa> mapPessoa = Pessoa.populaPessoasMap();
+        Map<String, Pessoa> mapPesso2 = Pessoa.populaPessoasMap();
+        mapPesso2.remove("Quinta");
+        mapPesso2.remove("Sexta");
+        mapPesso2.remove("Setima");
+        mapPesso2.remove("Oitava");
+        mapPesso2.remove("Nona");
+        mapPesso2.remove("Decima");
+
+
+
         System.out.println("1- Ordena map por ID (STREAM)");
         mapPessoa.entrySet()
                 .stream()
@@ -62,6 +73,26 @@ public class Teste2 {
                 .filter(a -> a.getValue().getNacionalidade().equals("BRASILEIRO"))
                 .count()
                 + " brasileiros");
+
+        System.out.println("\n9- Valores iguais MAPDIFFERENCE");
+        MapDifference<String, Pessoa> iguais = Maps.difference(mapPesso2, mapPessoa);
+        System.out.println("9) "+ iguais.entriesDiffering()
+                .values()
+                .stream()
+                .map(a -> a.rightValue())
+                .sorted(Comparator.comparing(a -> a.getId()))
+                .collect(Collectors.toList()));
+
+        System.out.println("\n10- Valores diferentes MAPDIFFERENCE");
+        MapDifference<String, Pessoa> diferenca = Maps.difference(mapPesso2, mapPessoa);
+        System.out.println("10) "+ diferenca.entriesOnlyOnRight()
+                .values()
+                .stream()
+                .sorted(Comparator.comparing(Pessoa::getId))
+                .collect(Collectors.toList()));
+
+
+
 
     }
 
