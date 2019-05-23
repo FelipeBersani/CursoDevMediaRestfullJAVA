@@ -43,27 +43,27 @@ public class Teste {
                 .filter(cidade -> cidade.startsWith("S"))
                 .count();
 
-        System.out.println("Total cidades começam com S: " +countt);
+        System.out.println("Total cidades começam com S: " + countt);
 
 
         //foreach key value
-        for(Map.Entry<String, String> entrada : testeMap.entrySet()){
-            System.out.println("FOREACH KEY VALUE|key "+entrada.getKey()+", Value "+entrada.getValue());
+        for (Map.Entry<String, String> entrada : testeMap.entrySet()) {
+            System.out.println("FOREACH KEY VALUE|key " + entrada.getKey() + ", Value " + entrada.getValue());
         }
 
         //foreach value
-        for(String valor : testeMap.values()){
-            System.out.println("FOREACH VALUE|Value "+ valor);
+        for (String valor : testeMap.values()) {
+            System.out.println("FOREACH VALUE|Value " + valor);
 
         }
 
         List<String> listValues = new ArrayList<>(testeMap.values());
         Collections.sort(listValues);
-        listValues.forEach(val -> System.out.println("ListValue| "+val));
+        listValues.forEach(val -> System.out.println("ListValue| " + val));
 
 
-        testeMap.values().stream().forEach(val -> System.out.println("VALUE| "+val));
-        testeMap.keySet().stream().forEach(key -> System.out.println("KEY| "+key));
+        testeMap.values().stream().forEach(val -> System.out.println("VALUE| " + val));
+        testeMap.keySet().stream().forEach(key -> System.out.println("KEY| " + key));
 
 
         List<String> testeStream = new ArrayList<>();
@@ -76,26 +76,26 @@ public class Teste {
         Stream<String> stream = testeStream.stream();
         Long conta = stream.filter(c -> c.startsWith("S"))
                 .count();
-        System.out.println("SomaStream: "+conta);
+        System.out.println("SomaStream: " + conta);
 
         Long conta2 = testeStream.stream()
                 .filter(c -> c.startsWith("S"))
                 .count();
-        System.out.println("SomaStreamSimples: "+conta2);
+        System.out.println("SomaStreamSimples: " + conta2);
 
         //JAVA LAMBDA
-        Function<Integer, Integer> function = (x) -> x*3 + 2;
+        Function<Integer, Integer> function = (x) -> x * 3 + 2;
         Integer resultado = function.apply(1);
-        System.out.print("O resultado do lambda é: "+resultado);
+        System.out.print("O resultado do lambda é: " + resultado);
 
 
         //TESTE PESSOA
         List<Pessoa> listaPessoa = new Pessoa().populaPessoas();
         Long testaQtde = listaPessoa.stream()
-                            .filter(p -> p.getNacionalidade().startsWith("BRASILEIRO"))
-                            .count();
+                .filter(p -> p.getNacionalidade().startsWith("BRASILEIRO"))
+                .count();
 
-        System.out.println("\nQtde brasileiros: "+ testaQtde);
+        System.out.println("\nQtde brasileiros: " + testaQtde);
 
 
         List<Pessoa> pessoas = new Pessoa().populaPessoas();
@@ -105,21 +105,21 @@ public class Teste {
                 .limit(2)
                 .map(Pessoa::getIdade);
 
-        streamTest.forEach(c-> System.out.println("Idade: "+c));
+        streamTest.forEach(c -> System.out.println("Idade: " + c));
 
         pessoas.stream()
-                .filter(p-> p.getNome().startsWith("NOME"))
+                .filter(p -> p.getNome().startsWith("NOME"))
                 .sorted(Comparator.comparing(Pessoa::getIdade).reversed())
                 .limit(2)
-                .forEach(p-> System.out.println("IdadePessoaStream: "+p.getIdade()));
+                .forEach(p -> System.out.println("IdadePessoaStream: " + p.getIdade()));
 
         double media = pessoas.stream()
-                .filter(p-> p.getNacionalidade().equals("BRASILEIRO"))
+                .filter(p -> p.getNacionalidade().equals("BRASILEIRO"))
                 .mapToInt(pessoa -> pessoa.getIdade())
                 .average()
                 .getAsDouble();
 
-        System.out.println("Media: "+media);
+        System.out.println("Media: " + media);
 
 
         OptionalDouble somaIdades = pessoas.stream()
@@ -127,9 +127,9 @@ public class Teste {
                 .mapToDouble(pessoa -> pessoa.getIdade())
                 .average();
 
-        if(somaIdades.isPresent()){
-            System.out.println("SomaIdades: "+somaIdades.getAsDouble());
-        }else{
+        if (somaIdades.isPresent()) {
+            System.out.println("SomaIdades: " + somaIdades.getAsDouble());
+        } else {
             System.out.println("SomaVazia");
         }
 
@@ -139,26 +139,26 @@ public class Teste {
                 .mapToInt(Pessoa::getIdade)
                 .max();
 
-        System.out.println("Maior idade: "+maiorIdade.getAsInt());
+        System.out.println("Maior idade: " + maiorIdade.getAsInt());
 
 
         List<Pessoa> qtdPessoasComMenosDe19Anos = pessoas.stream()
-                .filter(p -> p.getIdade()<19)
+                .filter(p -> p.getIdade() < 19)
                 .sorted(Comparator.comparing(Pessoa::getIdade).reversed())
                 .collect(Collectors.toList());
 
         System.out.println(qtdPessoasComMenosDe19Anos.size());
-        for(Pessoa p : qtdPessoasComMenosDe19Anos){
-            System.out.println(p.getNome()+" tem "+p.getIdade()+" anos.");
+        for (Pessoa p : qtdPessoasComMenosDe19Anos) {
+            System.out.println(p.getNome() + " tem " + p.getIdade() + " anos.");
         }
 
         Map<Long, String> qtdPessoasComMenosDe19AnosMap = pessoas.stream()
-                .filter(p -> p.getIdade()<19)
+                .filter(p -> p.getIdade() < 19)
                 .sorted(Comparator.comparing(Pessoa::getIdade).reversed())
                 .collect(Collectors.toMap(Pessoa::getId, Pessoa::getNacionalidade));
 
-        for(Map.Entry<Long, String> maap : qtdPessoasComMenosDe19AnosMap.entrySet()){
-            System.out.println("KeyMAP: "+maap.getKey()+", ValueMAP,: "+maap.getValue());
+        for (Map.Entry<Long, String> maap : qtdPessoasComMenosDe19AnosMap.entrySet()) {
+            System.out.println("KeyMAP: " + maap.getKey() + ", ValueMAP,: " + maap.getValue());
         }
 
 
@@ -166,58 +166,56 @@ public class Teste {
                 .filter(p -> p.getNacionalidade().equals("BRASILEIRO"))
                 .findFirst();
 
-        System.out.println("Primeira pessoa: "+pessoa.get().getNome());
+        System.out.println("Primeira pessoa: " + pessoa.get().getNome());
 
 
         Predicate<Pessoa> p1 = p -> p.getIdade() < 15;
         boolean boolTeste = pessoas.stream()
                 .anyMatch(p1);
 
-        System.out.println("ReturnBOOL: "+boolTeste);
+        System.out.println("ReturnBOOL: " + boolTeste);
 
 
         StringBuffer sb = new StringBuffer();
         Integer i = 0;
-        for(String value: qtdPessoasComMenosDe19AnosMap.values()){
-            sb = i==0 ? sb.append(value.toString()+"-") : sb.append(value.toString());
+        for (String value : qtdPessoasComMenosDe19AnosMap.values()) {
+            sb = i == 0 ? sb.append(value.toString() + "-") : sb.append(value.toString());
             i++;
         }
-        System.out.println("NACIONALIDADE| "+sb);
+        System.out.println("NACIONALIDADE| " + sb);
 
 
         List<String> listPessoa = Arrays.asList("Pessoa", "Pessoa2", "Pessoa3");
         String result = listPessoa.stream()
                 .collect(Collectors.joining("-", "[", "]"));
-        System.out.println("STREAM COM TRAÇO| "+result);
+        System.out.println("STREAM COM TRAÇO| " + result);
 
 
         listPessoa = Arrays.asList("Pessoa", "Pessoa2", "Pessoa3", "Arnaldo");
         result = listPessoa.stream()
                 .collect(Collectors.joining(", "));
-        System.out.println("STREAM COM VIRGULA| "+result);
+        System.out.println("STREAM COM VIRGULA| " + result);
 
 
         List<Pessoa> listDePessoas = Pessoa.populaPessoas();
         Map<Long, List<Pessoa>> pessoaMap = listDePessoas.stream()
                 .collect(Collectors.groupingBy(Pessoa::getId));
-        System.out.println("MAP| "+pessoaMap);
+        System.out.println("MAP| " + pessoaMap);
 
         List<String> primeiraPessoa = listPessoa.stream()
-                .filter(p-> p.startsWith("Pessoa"))
+                .filter(p -> p.startsWith("Pessoa"))
                 .collect(Collectors.toList());
 
-        System.out.println("ListPessoa| "+primeiraPessoa);
-
+        System.out.println("ListPessoa| " + primeiraPessoa);
 
 
         Optional<Pessoa> pessoaS = pessoas.stream()
-                .filter(p -> p.getId()<5)
+                .filter(p -> p.getId() < 5)
                 .sorted(Comparator.comparing(Pessoa::getNome).reversed())
                 .limit(1)
                 .findFirst();
 
-        System.out.println("GET NOME ID<5| "+pessoaS.get().getNome());
-
+        System.out.println("GET NOME ID<5| " + pessoaS.get().getNome());
 
 
         String nome = pessoas.stream()
@@ -226,33 +224,33 @@ public class Teste {
                 .limit(1)
                 .collect(Collectors.joining());
 
-        System.out.println("GET NOME POR COLLECT| "+nome);
+        System.out.println("GET NOME POR COLLECT| " + nome);
 
 
         List<String> givenList = Arrays.asList("a", "bb", "ccc", "dddd");
         Long resultadoMaisQueTresDigitos = givenList.stream()
-                .filter(g -> g.length()>=3)
+                .filter(g -> g.length() >= 3)
                 .count();
-        System.out.println("QTDE MAIS DE 3 DIGITOS| "+resultadoMaisQueTresDigitos);
+        System.out.println("QTDE MAIS DE 3 DIGITOS| " + resultadoMaisQueTresDigitos);
 
 
         String nomeResultadoMaisQueTresDigitos = givenList.stream()
-                .filter(g -> g.length()>=3)
+                .filter(g -> g.length() >= 3)
                 .collect(Collectors.joining(", "));
-        System.out.println("NOME MAIS DE 3 DIGITOS| "+nomeResultadoMaisQueTresDigitos);
+        System.out.println("NOME MAIS DE 3 DIGITOS| " + nomeResultadoMaisQueTresDigitos);
 
 
         List<Integer> listaNumeros = Arrays.asList(3, 4, 6, 7);
         Double somaNumeros = listaNumeros.stream()
                 .mapToDouble(p -> p.doubleValue())
                 .sum();
-        System.out.println("SOMA NUMEROS| "+somaNumeros);
+        System.out.println("SOMA NUMEROS| " + somaNumeros);
 
 
         OptionalDouble mediaNumeros = listaNumeros.stream()
                 .mapToDouble(p -> p.doubleValue())
                 .average();
-        System.out.println("MEDIA NUMEROS| "+mediaNumeros.getAsDouble());
+        System.out.println("MEDIA NUMEROS| " + mediaNumeros.getAsDouble());
 
 
         Set<String> setTeste = new HashSet<>();
@@ -262,59 +260,26 @@ public class Teste {
 
         Iterator<String> it = setTeste.iterator();
         i = 0;
-        String valor= "";
-        while (it.hasNext()){
-            if(i==0){
+        String valor = "";
+        while (it.hasNext()) {
+            if (i == 0) {
                 valor = it.next();
-            }else{
+            } else {
                 it.next();
             }
             i++;
         }
-        System.out.println("ValorIterator| "+valor);
+        System.out.println("ValorIterator| " + valor);
 
-        String[] companies = { "Yahoo", "Vodafone", "Samsung" };
+        String[] companies = {"Yahoo", "Vodafone", "Samsung"};
         Arrays.sort(companies);
-        System.out.println("ArrayString "+companies.toString());
+        System.out.println("ArrayString " + companies.toString());
 
         List<String> testeArray = Arrays.asList("TESTE1", "ATESTE2", "BTESTE3", "CTESTE4", "DTESTE5", "ETESTE6", "FTESTE7", "GTESTE8");
         Collections.sort(testeArray);
-        System.out.println("ARRAY "+testeArray);
+        System.out.println("ARRAY " + testeArray);
 
-        testeArray.stream().sorted(Comparator.reverseOrder()).forEach(a -> System.out.println("Lista: "+a));
-
-
-        //EXERCICIO MEIA
-        List<String> listTamanhoMeia = Arrays.asList("1","1", "3", "4", "2", "2", "5", "1", "1", "2", "3", "4", "5", "1", "1", "2");
-        System.out.println("Quantidade de itens 1 na lista: "+listTamanhoMeia.stream().filter(s -> s.equals("1")).count());
-
-        Map<String, Integer> mapOrdenador = new HashMap<String, Integer>();
-
-        for(String meiaSeparada :listTamanhoMeia){
-
-            if(mapOrdenador.containsKey(meiaSeparada)){
-                Integer qtdMeiaTamanho = mapOrdenador.get(meiaSeparada);
-                qtdMeiaTamanho+=1;
-                mapOrdenador.put(meiaSeparada, qtdMeiaTamanho);
-            }else{
-                mapOrdenador.put(meiaSeparada, 1);
-            }
-        }
-
-        Map<String, Integer> mapFinal = new HashMap<>();
-        mapOrdenador.entrySet().stream().forEach(a -> mapFinal.put(a.getKey(), (a.getValue())/2));
-        mapFinal.entrySet().stream().sorted(Map.Entry.<String,Integer>comparingByKey().reversed()).forEach(k -> System.out.println("OrderedDecreasingKEYFINAL "+k.getKey()+", VALUEFINAL "+k.getValue()));
-
-        mapFinal.entrySet().stream().forEach(k -> System.out.println("OrderedIncreasingKEYFINAL "+k.getKey()+", VALUEFINAL "+k.getValue()));
-
-        mapFinal.entrySet()
-                .stream()
-                .sorted(Map.Entry.<String, Integer>comparingByValue().thenComparing(Map.Entry.<String, Integer>comparingByKey().reversed()))
-                .forEach(k -> System.out.println("UsingTwoSortFilters "+k.getKey()+", VALUEFINAL "+k.getValue()));
-
-
-
-
+        testeArray.stream().sorted(Comparator.reverseOrder()).forEach(a -> System.out.println("Lista: " + a));
     }
 }
 
