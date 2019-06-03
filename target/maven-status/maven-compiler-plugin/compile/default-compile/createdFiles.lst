@@ -1,4 +1,7 @@
-main/JAVA/DAO/NotaDAO.class
-main/JAVA/entidade/Nota.class
-main/JAVA/config/BDConfig.class
-main/JAVA/rest/NotasService.class
+main/Teste.class
+main/rest/NotasService.class
+main/DAO/NotaDAO.class
+main/Pessoa.class
+main/config/BDConfig.class
+main/entidade/Nota.class
+Teste2.class

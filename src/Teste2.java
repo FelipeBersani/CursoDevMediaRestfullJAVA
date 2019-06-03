@@ -1,11 +1,19 @@
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ser.Serializers;
 import com.google.gson.Gson;
+import com.mysql.cj.core.util.Base64Decoder;
 import jersey.repackaged.com.google.common.collect.MapDifference;
 import jersey.repackaged.com.google.common.collect.Maps;
 import main.Pessoa;
-import org.glassfish.jersey.internal.Errors;
 
 import java.io.IOException;
+import java.net.CookieHandler;
+import java.security.InvalidKeyException;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -14,6 +22,11 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import com.auth0.jwt.JWT;
+import sun.security.rsa.RSAPrivateCrtKeyImpl;
+import sun.security.rsa.RSAPublicKeyImpl;
+
+import javax.swing.text.html.Option;
 
 public class Teste2 {
 
@@ -256,14 +269,53 @@ public class Teste2 {
 
     }
 
+    public void testEncript(){
+        String senha = "senha";
+        senha = Base64.getEncoder().encodeToString("aSenhaÉ:".concat(senha).getBytes());
+
+        System.out.println("Convertido em base 64: "+senha);
+
+        senha = new String(Base64.getDecoder().decode(senha));
+
+        System.out.println("Desconvertido da base 64: "+senha);
+
+    }
+
+    public void testOptional() {
+        String valor = null;
+        Optional<String> testeOptional = Optional.ofNullable(valor);
+        System.out.println("Test null value using optional");
+        System.out.println(testeOptional.isPresent() ? testeOptional.get() : Optional.empty());
+        System.out.println("If has value false (orElse): " + Optional.ofNullable(valor).orElse("Error\n"));
+        System.out.println("Using OrElseThrow for exceptions"+Optional.ofNullable(valor).orElseThrow(() -> new RuntimeException()));
+
+        valor = "Teste";
+        testeOptional = Optional.ofNullable(valor);
+        System.out.println("Test string value using optional");
+        System.out.println(testeOptional.isPresent() ? testeOptional.get() : Optional.empty());
+
+        testeOptional.ifPresent(a -> System.out.println("Value from attribute value: " + a));
+        System.out.println("If has value true: " + Optional.ofNullable(valor).orElse("Error"));
+
+
+        List<Pessoa> pessoa = Pessoa.populaPessoas();
+
+    }
+
     public static void main(String[] args) {
         Teste2 t2 = new Teste2();
         //t2.testHashMap();
         //t2.testJson();
         //t2.testDates();
         //t2.ExercicioMeia();
-        t2.testMath();
+        //t2.testMath();
+        //t2.testEncript();
 
+        try{
+        t2.testOptional();}
+        catch (RuntimeException e) {
+            System.out.println("RuntimeError correct!");
+        }
     }
 
 }
