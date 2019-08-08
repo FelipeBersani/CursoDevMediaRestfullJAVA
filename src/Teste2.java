@@ -1,32 +1,26 @@
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ser.Serializers;
 import com.google.gson.Gson;
-import com.mysql.cj.core.util.Base64Decoder;
 import jersey.repackaged.com.google.common.collect.MapDifference;
 import jersey.repackaged.com.google.common.collect.Maps;
 import main.Pessoa;
 
 import java.io.IOException;
-import java.net.CookieHandler;
-import java.security.InvalidKeyException;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import com.auth0.jwt.JWT;
-import sun.security.rsa.RSAPrivateCrtKeyImpl;
-import sun.security.rsa.RSAPublicKeyImpl;
-
-import javax.swing.text.html.Option;
+import java.util.stream.Stream;
 
 public class Teste2 {
 
@@ -127,7 +121,6 @@ public class Teste2 {
 
     }
 
-
     public void testJson(){
         //JSON
         List<Pessoa> listaPessoas = Pessoa.populaPessoas();
@@ -175,6 +168,15 @@ public class Teste2 {
         LocalDateTime teste = LocalDateTime.now();
         System.out.println(teste.toLocalDate());
 
+        Timestamp timestamp = Timestamp.valueOf(teste);
+        System.out.println("LocalDateTime to TimeStamp: "+timestamp+"\n");
+        Long agora = Instant.now(Clock.system(ZoneId.of("America/Sao_Paulo"))).toEpochMilli();
+        String timestampp = agora.toString();
+        System.out.println("Timestamp: "+agora+" \n");
+
+        LocalDateTime testeVoltaLocalDateTime = timestamp.toLocalDateTime();
+        System.out.println("TimeStamp to LocalDateTime: "+testeVoltaLocalDateTime+"\n");
+
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(new Locale("pt", "br"));
 
         System.out.println("Teste datetimeFormatter: "+teste.format(dateTimeFormatter));
@@ -184,6 +186,8 @@ public class Teste2 {
         LocalDate teste2 = teste.toLocalDate();
 
         System.out.println("teste "+teste2);
+
+
 
         long diferenca = ChronoUnit.YEARS.between(LocalDate.of(1994, 06, 01), teste);
         System.out.println("Diferença entre nascimento e hoje: "+diferenca+" anos!");
@@ -269,17 +273,7 @@ public class Teste2 {
 
     }
 
-    public void testEncript(){
-        String senha = "senha";
-        senha = Base64.getEncoder().encodeToString("aSenhaÉ:".concat(senha).getBytes());
 
-        System.out.println("Convertido em base 64: "+senha);
-
-        senha = new String(Base64.getDecoder().decode(senha));
-
-        System.out.println("Desconvertido da base 64: "+senha);
-
-    }
 
     public void testOptional() {
         String valor = null;
@@ -302,20 +296,133 @@ public class Teste2 {
 
     }
 
+    public void testEncoder (){
+        CharsetEncoder charsetEncoder = Charset.forName("ISO-8859-1").newEncoder();
+
+        String teste = "çãî";
+
+        boolean testEncode = charsetEncoder.canEncode(teste);
+        System.out.println("É ASCII: "+testEncode);
+
+        charsetEncoder = Charset.forName("UTF-8").newEncoder();
+        testEncode = charsetEncoder.canEncode(teste);
+        System.out.println("É UTF-8: "+testEncode);
+
+
+    }
+
+
+    public void testCrypt(){
+        //Cadastro
+        String salt = "ABCD";
+        String hashPassword = encrypt("senha", salt);
+
+        //Validacao de senha
+        boolean returnValid = validaSenha("senha", salt, hashPassword);
+        System.out.println(returnValid);
+
+    }
+
+    public String encrypt(String password, String salt){
+
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("SHA-512");
+            digest.reset();
+            digest.update(password.concat(salt).getBytes());
+            String hash = String.format("%0128x", new BigInteger(1, digest.digest()));
+
+            return hash;
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public boolean validaSenha(String password, String salt, String hashPassword) {
+        String passwordCrypted = encrypt(password, salt);
+        return hashPassword.equals(passwordCrypted);
+    }
+
+
+    public void testAnnotationAndReflection(){
+        Class<Pessoa> classe = Pessoa.class;
+        for(Field attribute: classe.getDeclaredFields()){
+            System.out.println("AttributeName: "+attribute.getName()+", Attribute type: "+attribute.getType());
+        }
+        System.out.println("\n");
+
+        for(Method method: classe.getDeclaredMethods()){
+            System.out.println("MethodName: "+method.getName()+", Return type:"+method.getReturnType()+", Parameters: "+method.getParameterCount());
+
+            if(method.getParameterCount()>0){
+                for(Parameter parameter: method.getParameters()){
+                    System.out.println("Parameter type: "+parameter.getParameterizedType().getTypeName());
+                }
+            }
+        }
+
+
+    }
+
+    public void testOptionalException(){
+
+        Map<Long, String> testMap = new HashMap<>();
+        testMap.put(1L, "teste");
+        testMap.put(2L, "teste2");
+        testMap.put(3L, "teste3");
+        testMap.entrySet().stream().filter(key -> key.getKey() > 2).forEach(System.out::println);
+        testMap.entrySet().stream().filter(value -> value.getValue().equals("teste")).forEach(System.out::println);
+
+
+        List<String> listTest = Arrays.asList("Geeks", "For", "Geeks", "A", "Computer", "Portal");
+        Map<Integer, String> mapResult = new HashMap<>();
+        listTest.stream().forEach(a -> mapResult.put(1 ,a.toString()));
+
+        System.out.println(mapResult.size());
+
+        Stream x =listTest.stream().map(n -> n.concat("aaa"));
+        System.out.println(x.findFirst().get());
+
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(10);
+        integerList.add(15);
+        integerList.add(20);
+
+        List<Integer> returnValue = integerList.stream()
+                .filter(a -> a >= 15)
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+        System.out.println(returnValue);
+
+        int[] test = integerList.stream().filter(a -> a>=15).mapToInt(value -> value).toArray();
+        for(int integerValue : test){
+            System.out.println(integerValue);
+        }
+        Arrays.stream(test).forEach(System.out::println);
+
+    }
+
+
+
     public static void main(String[] args) {
         Teste2 t2 = new Teste2();
+
         //t2.testHashMap();
         //t2.testJson();
         //t2.testDates();
         //t2.ExercicioMeia();
         //t2.testMath();
-        //t2.testEncript();
+        //t2.testCrypt();
+        //t2.testEncoder();
+        //t2.testAnnotationAndReflection();
+        //t2.testOptionalException();
 
-        try{
-        t2.testOptional();}
-        catch (RuntimeException e) {
-            System.out.println("RuntimeError correct!");
-        }
+//        try{
+//        t2.testOptional();}
+//        catch (RuntimeException e) {
+//            System.out.println("RuntimeError correct!");
+//        }
     }
 
 }
