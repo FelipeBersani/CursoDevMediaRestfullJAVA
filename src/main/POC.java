@@ -8,7 +8,9 @@ import java.math.BigDecimal;
 import java.net.*;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.time.format.TextStyle;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class POC {
 
@@ -39,9 +41,8 @@ public class POC {
             }
 
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            Transacao transacao = objectMapper.readValue(sb.toString(), Transacao.class);
+            TransacaoTipo transacaoTipo = objectMapper.readValue(sb.toString(), TransacaoTipo.class);
 
             System.out.println();
 
@@ -52,38 +53,101 @@ public class POC {
             while ((a = bufferedReader1.readLine()) != null) {
                 if (i != 0) {
                     String[] b = a.split("\\s{2,}+");
-                    NumberFormat numberFormat = NumberFormat.getInstance(Locale.US);
+                    NumberFormat numberFormat = NumberFormat.getInstance(new Locale("pt", "BR"));
                     try {
                         Number number = numberFormat.parse(b[2]);
                         BigDecimal valor = new BigDecimal(number.toString());
 
                         if(valor.longValue() > 0){
-                            Recebimento recebimento = new Recebimento();
-                            recebimento.setData(b[0]);
-                            recebimento.setDescricao(b[1]);
-                            recebimento.setValor(b[2]);
-                            recebimento.setMoeda("R$");
-                            transacao.getRecebimentos().add(recebimento);
+                            Transacao transacao = Transacao.buildPagamento(b[0], b[1], "R$", valor, b.length!= 4 ? "": b[3]);
+                            transacaoTipo.getRecebimentos().add(transacao);
                         }else{
-                            Pagamento pagamento = new Pagamento();
-                            pagamento.setData(b[0]);
-                            pagamento.setDescricao(b[1]);
-                            pagamento.setValor(b[2]);
-                            pagamento.setCategoria(b.length != 4 ? "" : b[3]);
-                            pagamento.setMoeda("R$");
-                            transacao.getPagamentos().add(pagamento);
+                            Transacao transacao = Transacao.buildPagamento(b[0], b[1], "R$", valor, b.length!= 4 ? "": b[3]);
+
+                             transacaoTipo.getPagamentos().add(transacao);
                         }
 
                     }catch(ParseException e){
                         e.printStackTrace();
-
                     }
                 } else {
                     i++;
                 }
             }
 
-            Map<String, Object> map = new HashMap();
+
+//            exibir o log de movimentações de forma ordenada;
+            List<Transacao> objectList = new ArrayList<>();
+            objectList.addAll(transacaoTipo.getPagamentos());
+            objectList.addAll(transacaoTipo.getRecebimentos());
+
+            objectList.stream()
+                    .sorted(Comparator.comparing(Transacao::getData).reversed())
+                .forEach(object -> System.out.println(object.toString()));
+
+//            informar o total de gastos por categoria;
+            Map<String, BigDecimal> mapGastoPorCategoria = new HashMap<>();
+            for(Transacao transacao : transacaoTipo.getPagamentos()) {
+                if(!mapGastoPorCategoria.containsKey(transacao.getCategoria())){
+                    mapGastoPorCategoria.put(transacao.getCategoria(), transacao.getValor());
+                }else{
+                    BigDecimal valorTotal = mapGastoPorCategoria.get(transacao.getCategoria());
+                    mapGastoPorCategoria.put(transacao.getCategoria(), transacao.getValor().add(valorTotal));
+                }
+            }
+
+            mapGastoPorCategoria.entrySet()
+                    .stream()
+                    .forEach(objeto -> System.out.println("O total de gastos da categoria "+objeto.getKey()+" foi de R$"+objeto.getValue().abs()));
+
+
+//            informar qual categoria cliente gastou mais;
+            Map.Entry<String, BigDecimal> map = mapGastoPorCategoria.entrySet()
+                    .stream()
+                    .max(Comparator.comparing(ab -> ab.getValue().abs()))
+                    .get();
+            System.out.println("A categoria "+map.getKey()+" teve o maior custo R$"+map.getValue().abs());
+
+
+            //            informar qual foi o mês que cliente mais gastou;
+            Map<String, BigDecimal> mapGastoPorMes = new HashMap<>();
+            for(Transacao transacao : transacaoTipo.getPagamentos()) {
+                if(!mapGastoPorMes.containsKey(transacao.getData().getMonth())){
+                    mapGastoPorMes.put(transacao.getData().getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")), transacao.getValor());
+                }else{
+                    BigDecimal valorTotal = mapGastoPorMes.get(transacao.getData().getMonth());
+                    mapGastoPorMes.put(transacao.getData().getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")), transacao.getValor().add(valorTotal));
+                }
+            }
+            map = mapGastoPorMes.entrySet()
+                    .stream()
+                    .max(Comparator.comparing(ab -> ab.getValue().abs()))
+                    .get();
+            System.out.println("O mês "+map.getKey()+" teve o maior gasto R$"+map.getValue().abs());
+
+//            quanto de dinheiro o cliente gastou;
+            BigDecimal totalGasto = BigDecimal.ZERO;
+            for(Transacao transacao : transacaoTipo.getPagamentos()) {
+                totalGasto = totalGasto.add(transacao.getValor().abs());
+            }
+            System.out.println("O total de dinheiro gasto foi de R$:"+totalGasto);
+
+//            quanto de dinheiro o cliente recebeu;
+            BigDecimal totalRecebido = BigDecimal.ZERO;
+            for(Transacao transacao : transacaoTipo.getRecebimentos()) {
+                totalRecebido = totalRecebido.add(transacao.getValor().abs());
+            }
+            System.out.println("O total de dinheiro recebido foi de R$:"+totalRecebido);
+
+
+//            saldo total de movimentações do cliente.
+            BigDecimal totalMovimentacoes = BigDecimal.ZERO;
+            int contador = 0;
+            for(Transacao transacao : objectList) {
+                totalMovimentacoes = totalMovimentacoes.add(transacao.getValor().abs());
+                contador++;
+            }
+            System.out.println("Foram encontradas "+contador+" movimentações, no valor de: R$:"+totalMovimentacoes);
 
 
             System.out.println();

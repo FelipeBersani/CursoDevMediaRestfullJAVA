@@ -1,45 +1,112 @@
 package main.rest;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import joptsimple.internal.Strings;
 
-import java.util.List;
+import java.math.BigDecimal;
+import java.text.Normalizer;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.Locale;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Transacao {
+    @JsonProperty("data")
+    private LocalDate data;
+    @JsonProperty("descricao")
+    private String descricao;
+    @JsonProperty("moeda")
+    private String moeda;
+    @JsonProperty("valor")
+    private BigDecimal valor;
+    @JsonProperty("categoria")
+    private String categoria;
 
-    @JsonProperty("pagamentos")
-    private List<Pagamento> pagamentos = null;
-
-    @JsonProperty("recebimentos")
-    private List<Recebimento> recebimentos = null;
-
-
-    @JsonProperty("pagamentos")
-    public List<Pagamento> getPagamentos() {
-        return pagamentos;
+    @JsonProperty("data")
+    public LocalDate getData() {
+        return data;
     }
 
-    @JsonProperty("pagamentos")
-    public void setPagamentos(List<Pagamento> pagamentos) {
-        this.pagamentos = pagamentos;
+    @JsonProperty("data")
+    public void setData(String data) {
+        data = data.replaceAll("\\s+", "");
+        data = data.replace("-", "/");
+        String[] identificaMes = data.split("/");
+        Locale locale;
+
+        LocalDate localDate;
+        locale = MesesEnum.mesLocale(identificaMes[1].toLowerCase());
+
+        localDate = LocalDate.parse(data.concat("/2019"), new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .append(DateTimeFormatter.ofPattern("dd/MMM/yyyy"))
+                .toFormatter().withLocale(locale));
+        this.data = localDate;
     }
 
-    @JsonProperty("recebimentos")
-    public List<Recebimento> getRecebimentos() {
-        return recebimentos;
+    @JsonProperty("descricao")
+    public String getDescricao() {
+        return descricao;
     }
 
-    @JsonProperty("recebimentos")
-    public void setRecebimentos(List<Recebimento> recebimentos) {
-        this.recebimentos = recebimentos;
+    @JsonProperty("descricao")
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    @JsonProperty("moeda")
+    public String getMoeda() {
+        return moeda;
+    }
+
+    @JsonProperty("moeda")
+    public void setMoeda(String moeda) {
+        this.moeda = moeda;
+    }
+
+    @JsonProperty("valor")
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    @JsonProperty("valor")
+    public void setValor(String valor) {
+        valor = valor.replace(",", ".");
+        valor = valor.replace(" ", "");
+        this.valor = new BigDecimal(valor);
+    }
+
+    @JsonProperty("categoria")
+    public String getCategoria() {
+        return categoria;
+    }
+
+    @JsonProperty("categoria")
+    public void setCategoria(String categoria) {
+        this.categoria = Normalizer
+                .normalize(categoria.toLowerCase(), Normalizer.Form.NFD)
+                .replaceAll("[^\\p{ASCII}]", "");
+    }
+
+    public static Transacao buildPagamento(String data, String descricao, String moeda, BigDecimal valor, String categoria){
+        Transacao transacao = new Transacao();
+        transacao.setData(data);
+        transacao.setDescricao(descricao);
+        transacao.setValor(valor.toString());
+        transacao.setCategoria(Strings.isNullOrEmpty(categoria) ? "NãoInformada" : categoria);
+        transacao.setMoeda(moeda);
+
+        return transacao;
     }
 
     @Override
     public String toString() {
-        return "Transacao{" +
-                "pagamentos=" + pagamentos +
-                ", recebimentos=" + recebimentos +
-                '}';
+        return "|Data da Transacao:"+ data +
+                " | Descricao='" + descricao + '\'' +
+                " | Moeda='" + moeda + '\'' +
+                " | Valor=" + valor +
+                " | Categoria='" + categoria;
     }
 }

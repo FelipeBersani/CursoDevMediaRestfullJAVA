@@ -1,26 +1,33 @@
 package main;
 
-import com.mysql.cj.core.io.BigDecimalValueFactory;
+import main.rest.MesesEnum;
+import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
 public class testmain {
     public static void main(String[] args) {
-        String valor = "1,332,231.42";
+        String data = "21/Feb";
+        data = data.replaceAll("\\s+", "");
+        data = data.replace("-", "/");
+        String[] identificaMes = data.split("/");
+        Locale locale;
 
-        NumberFormat numberFormat = NumberFormat.getInstance(Locale.US);
-        try {
-            Number number = numberFormat.parse(valor);
-            BigDecimal valorBigDecimal = new BigDecimal(number.toString());
-            System.out.println(valorBigDecimal);
+        LocalDate localDate;
+        locale = MesesEnum.mesLocale(identificaMes[1].toLowerCase());
 
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        localDate = LocalDate.parse(data.concat("/2019"), new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .append(DateTimeFormatter.ofPattern("dd/MMM/yyyy"))
+                .toFormatter().withLocale(locale));
+        System.out.println(localDate.toString());
 
     }
 }
