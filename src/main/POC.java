@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.net.*;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -46,7 +47,7 @@ public class POC {
 
             System.out.println();
 
-            BufferedReader bufferedReader1 = new BufferedReader(new InputStreamReader(new FileInputStream("/home/fliguori/teste/file.log")));
+            BufferedReader bufferedReader1 = new BufferedReader(new InputStreamReader(new FileInputStream("./file.log")));
 
             String a = "";
             int i = 0;
@@ -59,10 +60,10 @@ public class POC {
                         BigDecimal valor = new BigDecimal(number.toString());
 
                         if(valor.longValue() > 0){
-                            Transacao transacao = Transacao.buildPagamento(b[0], b[1], "R$", valor, b.length!= 4 ? "": b[3]);
+                            Transacao transacao = Transacao.buildPagamento(b[0], b[1], "R$", valor, b.length!= 4 ? "NãoInformada": b[3]);
                             transacaoTipo.getRecebimentos().add(transacao);
                         }else{
-                            Transacao transacao = Transacao.buildPagamento(b[0], b[1], "R$", valor, b.length!= 4 ? "": b[3]);
+                            Transacao transacao = Transacao.buildPagamento(b[0], b[1], "R$", valor, b.length!= 4 ? "NãoInformada": b[3]);
 
                              transacaoTipo.getPagamentos().add(transacao);
                         }
@@ -88,6 +89,7 @@ public class POC {
 //            informar o total de gastos por categoria;
             Map<String, BigDecimal> mapGastoPorCategoria = new HashMap<>();
             for(Transacao transacao : transacaoTipo.getPagamentos()) {
+                System.out.println(transacao.getCategoria());
                 if(!mapGastoPorCategoria.containsKey(transacao.getCategoria())){
                     mapGastoPorCategoria.put(transacao.getCategoria(), transacao.getValor());
                 }else{
@@ -98,7 +100,8 @@ public class POC {
 
             mapGastoPorCategoria.entrySet()
                     .stream()
-                    .forEach(objeto -> System.out.println("O total de gastos da categoria "+objeto.getKey()+" foi de R$"+objeto.getValue().abs()));
+                    .sorted(Comparator.comparing(abc -> abc.getValue().abs()))
+                    .forEach(objeto -> System.out.println("O total de gastos da categoria "+objeto.getKey().toUpperCase()+" foi de R$"+objeto.getValue().abs()));
 
 
 //            informar qual categoria cliente gastou mais;
@@ -106,24 +109,24 @@ public class POC {
                     .stream()
                     .max(Comparator.comparing(ab -> ab.getValue().abs()))
                     .get();
-            System.out.println("A categoria "+map.getKey()+" teve o maior custo R$"+map.getValue().abs());
+            System.out.println("A categoria "+map.getKey().toUpperCase()+" teve o maior custo R$"+map.getValue().abs());
 
 
             //            informar qual foi o mês que cliente mais gastou;
             Map<String, BigDecimal> mapGastoPorMes = new HashMap<>();
             for(Transacao transacao : transacaoTipo.getPagamentos()) {
-                if(!mapGastoPorMes.containsKey(transacao.getData().getMonth())){
-                    mapGastoPorMes.put(transacao.getData().getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")), transacao.getValor());
+                if(!mapGastoPorMes.containsKey(retornaMesComDisplayDoBrasil(transacao.getData()))){
+                    mapGastoPorMes.put(retornaMesComDisplayDoBrasil(transacao.getData()), transacao.getValor());
                 }else{
-                    BigDecimal valorTotal = mapGastoPorMes.get(transacao.getData().getMonth());
-                    mapGastoPorMes.put(transacao.getData().getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")), transacao.getValor().add(valorTotal));
+                    BigDecimal valorTotal = mapGastoPorMes.get(retornaMesComDisplayDoBrasil(transacao.getData()));
+                    mapGastoPorMes.put(retornaMesComDisplayDoBrasil(transacao.getData()), transacao.getValor().add(valorTotal));
                 }
             }
             map = mapGastoPorMes.entrySet()
                     .stream()
                     .max(Comparator.comparing(ab -> ab.getValue().abs()))
                     .get();
-            System.out.println("O mês "+map.getKey()+" teve o maior gasto R$"+map.getValue().abs());
+            System.out.println("O mês "+map.getKey().toUpperCase()+" teve o maior gasto R$"+map.getValue().abs());
 
 //            quanto de dinheiro o cliente gastou;
             BigDecimal totalGasto = BigDecimal.ZERO;
@@ -157,4 +160,8 @@ public class POC {
         }
     }
 
+
+    public static String retornaMesComDisplayDoBrasil(LocalDate data){
+        return data.getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR"));
+    }
 }

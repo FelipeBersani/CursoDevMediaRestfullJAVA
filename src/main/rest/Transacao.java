@@ -39,7 +39,7 @@ public class Transacao {
         LocalDate localDate;
         locale = MesesEnum.mesLocale(identificaMes[1].toLowerCase());
 
-        localDate = LocalDate.parse(data.concat("/2019"), new DateTimeFormatterBuilder()
+        localDate = LocalDate.parse(data.concat("/2018"), new DateTimeFormatterBuilder()
                 .parseCaseInsensitive()
                 .append(DateTimeFormatter.ofPattern("dd/MMM/yyyy"))
                 .toFormatter().withLocale(locale));
@@ -85,9 +85,13 @@ public class Transacao {
 
     @JsonProperty("categoria")
     public void setCategoria(String categoria) {
-        this.categoria = Normalizer
-                .normalize(categoria.toLowerCase(), Normalizer.Form.NFD)
-                .replaceAll("[^\\p{ASCII}]", "");
+        if(Strings.isNullOrEmpty(categoria)){
+            this.categoria = "naoinformada";
+        }else{
+            this.categoria = Normalizer
+                    .normalize(categoria.toLowerCase(), Normalizer.Form.NFD)
+                    .replaceAll("[^\\p{ASCII}]", "");
+        }
     }
 
     public static Transacao buildPagamento(String data, String descricao, String moeda, BigDecimal valor, String categoria){
@@ -103,6 +107,7 @@ public class Transacao {
 
     @Override
     public String toString() {
+
         return "|Data da Transacao:"+ data +
                 " | Descricao='" + descricao + '\'' +
                 " | Moeda='" + moeda + '\'' +
